@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright © 2017 Benjamin Hardesty. All Rights Reserved. -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Renters">
+        <menu>
+            <item
+                android:id="@+id/nav_camera"
+                android:icon="@drawable/ic_local_parking_black_24dp"
+                android:title="Find Parking" />
+            <item
+                android:id="@+id/nav_my_reservations"
+                android:icon="@drawable/ic_time_to_leave_black_24dp"
+                android:title="My Reservations" />
+            <item
+                android:id="@+id/nav_my_pending_requests"
+                android:icon="@drawable/ic_question_answer_black_24dp"
+                android:title="My Pending Requests" />
+            <item
+                android:id="@+id/nav_payments"
+                android:icon="@drawable/ic_payment_black_24dp"
+                android:title="Payments" />
+            <item
+                android:id="@+id/nav_transaction_history"
+                android:icon="@drawable/ic_list_black_24dp"
+                android:title="Transaction History" />
+        </menu>
+    </item>
+    <item android:title="Owners">
+        <menu>
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/ic_storage_black_24dp"
+                android:title="My Listed Spots" />
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_add_black_24dp"
+                android:title="List A Spot" />
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_mail_black_24dp"
+                android:title="Pending Requests" />
+            <item
+                android:id="@+id/nav_get_paid"
+                android:icon="@drawable/ic_payment_black_24dp"
+                android:title="Get Paid" />
+            <item
+                android:id="@+id/nav_owner_transactions_history"
+                android:icon="@drawable/ic_list_black_24dp"
+                android:title="Transactions History" />
+        </menu>
+    </item>
+    <group>
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="Account" />
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/ic_message_black_24dp"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Logout" />
+    </group>
+</menu>

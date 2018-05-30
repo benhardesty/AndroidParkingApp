@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- © 2017 Benjamin Hardesty - All Rights Reserved. -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid
+        android:color="#CC0b51c1"/>
+    <corners
+        android:topLeftRadius="5dp"
+        android:topRightRadius="5dp"
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="5dp"/>
+</shape>
+
+<!--
+<solid
+    android:color="#CCb3b3b3"/>
+    -->

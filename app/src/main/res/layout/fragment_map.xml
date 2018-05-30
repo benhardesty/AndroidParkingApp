@@ -1,0 +1,168 @@
+<!-- Copyright © 2017 Benjamin Hardesty. All Rights Reserved. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.parking.app.MapFragment"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            tools:context="com.parking.app.MainActivity"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/text_view_border_bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/places_ic_search"/>
+
+            <TextView
+                android:id="@+id/map_fragment_autocomplete_widget"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:text="Search"
+                android:textSize="20sp"
+                android:paddingTop="10dp" />
+
+            <ImageView
+                android:id="@+id/remove_searched_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/ic_close_light"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="10.5dp"
+            android:background="#19000000">
+
+            <ImageView
+                android:id="@+id/my_location_button"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:padding="5dp"
+                android:src="@drawable/my_location"
+                android:background="#CCFFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                android:id="@+id/rangeSeekbar1"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="-110dp"
+                android:layout_marginTop="150dp"
+                android:paddingTop="5dp"
+                app:max_value="750"
+                app:min_value="0"
+                app:corner_radius="5"
+                app:bar_color="#CCbfbfbf"
+                app:bar_highlight_color="#CC33cc33"
+                app:right_thumb_color="#CCFFFFFF"
+                app:left_thumb_color="#CCFFFFFF"
+                app:right_thumb_color_pressed="#CCFFFFFF"
+                app:left_thumb_color_pressed="#CCFFFFFF"/>
+
+            <TextView
+                android:id="@+id/prices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners_white"
+                android:textColor="#33cc33"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="140dp" />
+
+            <TextView
+                android:id="@+id/all_spots_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rounded_corners_gray_opacity_light"
+                android:textSize="15sp"
+                android:padding="1dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="All Spots"/>
+
+            <TextView
+                android:id="@+id/monthly_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rounded_corners_gray_opacity_light"
+                android:textSize="15sp"
+                android:padding="1dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="Monthly"/>
+
+            <TextView
+                android:id="@+id/daily_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rounded_corners_gray_opacity_light"
+                android:textSize="15sp"
+                android:padding="1dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="Daily"/>
+
+            <TextView
+                android:id="@+id/hourly_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rounded_corners_gray_opacity_light"
+                android:textSize="15sp"
+                android:padding="1dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="Hourly"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

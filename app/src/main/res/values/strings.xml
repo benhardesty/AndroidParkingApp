@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Parking App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="loginAgreements">By clicking Sign In you agree to the XYZ Company <a href="https://">Terms of Service</a> and <a href="https://">Privacy Policy</a>.</string>
+    <string name="registerAgreements">By clicking Sign Up you agree to the XYZ Company <a href="https://">Terms of Service</a> and <a href="https://">Privacy Policy</a>.</string>
+    <string name="requestAgreements">By clicking Request Reservation, you agree to the XYZ Company <a href="https://">Terms of Service</a> and <a href="https://">Privacy Policy</a> and to the <a href="https://">Rental Agreement</a>.</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="spot_types">
+        <item>Driveway</item>
+        <item>Reserved-Apt</item>
+        <item>Reserved-Garage</item>
+    </string-array>
+
+    <string-array name="access_types">
+        <item>Non-Gated</item>
+        <item>Gated</item>
+    </string-array>
+    <string name="title_activity_availability_picker">AvailabilityPicker</string>
+
+    <string-array name="vehicle_makes">
+        <item>Select Make</item>
+        <item>Audi</item>
+        <item>BMW</item>
+        <item>Chrysler</item>
+        <item>Ford</item>
+        <item>GM</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Jaguar</item>
+        <item>Kia</item>
+        <item>Land Rover</item>
+        <item>Lotus</item>
+        <item>Maserati</item>
+        <item>Mazda</item>
+        <item>Mercedes</item>
+        <item>Mitsubishi</item>
+        <item>Nissan</item>
+        <item>Porche</item>
+        <item>Suzuki</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
+    </string-array>
+
+    <string-array name="vehicle_colors">
+        <item>Select Color</item>
+        <item>Grey</item>
+        <item>Black</item>
+        <item>White</item>
+        <item>Beige</item>
+        <item>Brown</item>
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Blue</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="vehicle_model">
+        <item>Select Model</item>
+    </string-array>
+    <string name="title_activity_manage_spot">ManageSpotActivity</string>
+    <string name="title_activity_reserve_spot">ReserveSpotActivity</string>
+    <string name="title_activity_available_hours">AvailableHoursActivity</string>
+    <string name="title_activity_edit_spot">EditSpotActivity</string>
+    <string name="title_activity_respond_to_request">RespondToRequestActivity</string>
+    <string name="title_activity_cancel_my_request">CancelMyRequestActivity</string>
+    <string name="title_activity_my_reservation">MyReservationActivity</string>
+    <string name="title_activity_transaction">TransactionActivity</string>
+    <string name="title_activity_confirm_password">ConfirmPasswordActivity</string>
+    <string name="title_activity_update_account">UpdateAccountActivity</string>
+    <string name="title_activity_manage_reservation">ManageReservationActivity</string>
+    <string name="title_activity_manage_payment">ManagePaymentActivity</string>
+
+</resources>
