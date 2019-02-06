@@ -15,15 +15,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+// View used to manager a user's payment methods.
 public class ManagePaymentActivity extends AppCompatActivity {
 
     String ipAddress;
@@ -34,7 +31,6 @@ public class ManagePaymentActivity extends AppCompatActivity {
     Button makeDefaultButton;
     Button deleteButton;
     Boolean buttonsAvailable = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +70,7 @@ public class ManagePaymentActivity extends AppCompatActivity {
         cardStringTextView.setText(card.getCardString());
     }
 
+    // Update a user's default credit card.
     void makeCardDefault() {
         if (!buttonsAvailable)
         {
@@ -150,6 +147,7 @@ public class ManagePaymentActivity extends AppCompatActivity {
         }
     }
 
+    // Delete a user's credit card.
     void deleteCard() {
         if (!buttonsAvailable)
         {
