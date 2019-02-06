@@ -20,12 +20,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -46,6 +42,7 @@ public class CancelMyRequestActivity extends AppCompatActivity {
     PendingRequest pendingRequest;
     String sessionid;
 
+    // Declare views.
     TextView spotAddressTextView;
     TextView fromTextView;
     TextView toTextView;
@@ -68,12 +65,14 @@ public class CancelMyRequestActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Retrieve data from previous view.
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("bundle");
         pendingRequest = bundle.getParcelable("pendingRequest");
         sessionid = bundle.getString("sessionid");
         ipAddress = bundle.getString("ipAddress");
 
+        // Initialize views.
         spotAddressTextView = (TextView) findViewById(R.id.spot_address);
         fromTextView = (TextView) findViewById(R.id.from_field);
         toTextView = (TextView) findViewById(R.id.to_field);
@@ -87,7 +86,7 @@ public class CancelMyRequestActivity extends AppCompatActivity {
 
         spotAddressTextView.setText(pendingRequest.getSpotAddress());
 
-        // Initialize views based on the request type
+        // Initialize views based on the request type.
         if (pendingRequest.getReservationType().equals("Monthly")) {
             fromTextView.setText(pendingRequest.getStart().split("/")[1] + "/" + pendingRequest.getStart().split("/")[2] + "/" + pendingRequest.getStart().split("/")[0]);
             if (pendingRequest.getEnd().equals("none")) {
