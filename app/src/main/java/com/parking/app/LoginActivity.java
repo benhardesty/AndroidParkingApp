@@ -21,10 +21,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -71,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
 
         isUserLoggedInFileName = "isUserLoggedIn";
 
+        // Check if the user was logged on prior to the app last closing. If the user was logged on, check if the user's
+        // session is still valid and direct them either to the login page or to the home page.
         try {
             String response = "";
             String line = "";
@@ -111,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
             mainLayout.setVisibility(View.VISIBLE);
         }
 
+        // Initialize views
         signInButton = (Button) findViewById(R.id.sign_in_button);
         signUpButton = (Button) findViewById(R.id.sign_up_button);
         userEmail = (EditText) findViewById(R.id.user_email);
@@ -126,7 +127,6 @@ public class LoginActivity extends AppCompatActivity {
         /*
          * Set on click listeners
          */
-
         forgotPasswordButtonInitial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -206,7 +206,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    // Check if the user's last session is still valid on the server.
+    // Attempt to log the user in with the provided username and password.
     private class BackgroundTask extends AsyncTask<Void, Void, String> {
 
         Context ctx;
@@ -327,8 +327,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
-
+    // Check if the user has a valid session on the server.
     private class CheckSession extends AsyncTask<Void, Void, String> {
 
         Context ctx;
