@@ -28,7 +28,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
@@ -51,12 +50,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -78,13 +74,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import static android.app.Activity.RESULT_OK;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+// Map fragment view showing available parking spots based on price and availability filters.
 public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, GoogleMap.OnMapLoadedCallback, GoogleMap.OnCameraIdleListener, GoogleMap.OnMarkerClickListener {
 
     String ipAddress = null;
@@ -172,18 +165,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
 
         }
 
-        // get seekbar from view
+        // Get seekbar from view.
         rangeSeekbar = (CrystalRangeSeekbar) view.findViewById(R.id.rangeSeekbar1);
         rangeSeekbar.setRotation(-90);
         rangeSeekbar.setMinStartValue(Float.valueOf(String.valueOf(minPrice)));
         rangeSeekbar.setMaxStartValue(Float.valueOf(String.valueOf(maxPrice)));
         rangeSeekbar.apply();
 
-        // get min and max text view
+        // Get min and max text view.
         tvPrices = (TextView) view.findViewById(R.id.prices);
         tvPrices.setText(String.valueOf(minPrice) + " - " + String.valueOf(maxPrice));
 
-        // Set final status listener (prices selected)
+        // Set final status listener (prices selected).
         rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
             @Override
             public void finalValue(Number minValue, Number maxValue) {
@@ -192,7 +185,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
             }
         });
 
-        // Set change listener (change values while scrolling)
+        // Set change listener (change values while scrolling).
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {
@@ -200,7 +193,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
             }
         });
 
-        // Initialize Google Search Autocomplete Widget
+        // Initialize Google Search Autocomplete Widget.
         autocompleteWidget = (TextView) view.findViewById(R.id.map_fragment_autocomplete_widget);
         autocompleteWidget.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,7 +229,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
             }
         });
 
-        // Initialize button to remove a place market on the map
+        // Initialize button to remove a place market on the map.
         removeSearchedPlace = (ImageView) view.findViewById(R.id.remove_searched_place);
         removeSearchedPlace.setVisibility(View.INVISIBLE);
         removeSearchedPlace.setOnClickListener(new View.OnClickListener() {
@@ -250,7 +243,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
             }
         });
 
-        // My Location Button click listener
+        // My Location Button click listener.
         ImageView MyLocationButton = (ImageView) view.findViewById(R.id.my_location_button);
         MyLocationButton.setOnClickListener(new ImageView.OnClickListener(){
             @Override
@@ -267,6 +260,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         filterType = "All";
         allSpotsButton.setBackground(getActivity().getResources().getDrawable(R.drawable.rounded_corners_gray_opacity_dark));
 
+        // Set onClickListeners for availability filters.
         monthlyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -385,6 +379,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         super.onDestroyView();
     }
 
+    // Get location updates from the Google Api Client.
     protected void startLocationUpdates() {
         if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, locationRequest, this);
@@ -392,16 +387,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         }
     }
 
+    // Update price filter.
     private void setMaxAndMinPrice(Number minValue, Number maxValue) {
         minPrice = Double.valueOf(String.valueOf(minValue));
         maxPrice = Double.valueOf(String.valueOf(maxValue));
         LoadSpots();
     }
 
+    // Initialize Google Map.
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-        // Initialize Google Map
 
         gMap = googleMap;
         gMap.getUiSettings().setZoomControlsEnabled(true);
@@ -453,6 +448,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         gMap.setOnMarkerClickListener(this);
     }
 
+    // Update map for a returned search result from the Google Places API.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
@@ -473,9 +469,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         }
     }
 
-    /*
-     * RETURN: Whether or not the user's last location is known
-     */
+    // Get the user's last known location.
     public boolean getUsersLastLocationOnMap() {
         Boolean lastLocationFound = false;
 
@@ -518,9 +512,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         return lastLocationFound;
     }
 
-    /*
-     * Set the user's last location on the map
-     */
+    // Set the user's last location on the map
     public void setUsersLastLocationOnMap()
     {
         String locationFoundFileName = "lastLocationFound";
@@ -542,9 +534,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         }
     }
 
-    /*
-        Update user's location
-    */
+    // Update user's location.
     public void MyLocation(View view) {
 
         if(ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -573,9 +563,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         }
     }
 
-    /*
-        Request permissions
-     */
+    // Request permission from the user to access their location.
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch(requestCode) {
@@ -604,9 +592,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         }
     }
 
-    /*
-        When GoogleApiClient is connected
-     */
+    // Start GoogleApiClient is connected
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
@@ -700,6 +686,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
         return false;
     }
 
+    // Update parking spots on the map.
     private class BackgroundTask extends AsyncTask<Double, Void, String> {
 
         Context ctx;
