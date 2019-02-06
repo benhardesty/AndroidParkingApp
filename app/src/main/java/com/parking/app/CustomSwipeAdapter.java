@@ -10,12 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-
-
 import java.util.ArrayList;
 
-
+// Class used to swipe between images rather than click to the next image.
 public class CustomSwipeAdapter extends PagerAdapter {
     private ArrayList<Bitmap> image_resources = new ArrayList<Bitmap>();
     private Context ctx;
