@@ -9,10 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -26,7 +24,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-
+// Class used to log a user out of the app, both on the client side and the server side.
 public class LogoutUtility extends AsyncTask<Void, Void, String> {
 
     Context ctx;
