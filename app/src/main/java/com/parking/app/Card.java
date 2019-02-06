@@ -6,11 +6,10 @@ package com.parking.app;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
+// Class to hold a user's credit card information.
 public class Card implements Parcelable {
     private String cardIsDefault;
     private String last2;
